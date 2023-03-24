@@ -1,6 +1,14 @@
+go run --work main.go
 
 //to get the list of target architectures
 go tool dist list
 
-//to compile main.go to windows files
+//to compile main.go to windows files or cross compile main.go files
 GOOS=windows GOARCH=amd64 go build -o app.exe main.go
+
+
+go build -x main.go
+
+go tool compile main.go // generates main.o file
+
+go tool link -v -o hell main.o
