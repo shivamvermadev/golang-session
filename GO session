@@ -12,3 +12,10 @@ go build -x main.go
 go tool compile main.go // generates main.o file
 
 go tool link -v -o hell main.o
+
+du -sh hell // displays size of file hell
+
+go tool objdump-s main.main hello
+
+go build -ldflags="-s -w" main.go // reducing file size of the generated binary file
+
